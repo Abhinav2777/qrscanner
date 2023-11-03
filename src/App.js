@@ -1,5 +1,5 @@
 import "./App.css";
-import { Scanner } from "./components/Scanner";
+import Scanner from "./components/Scanner";
 function App() {
   return (
     <div className="App">
