@@ -4,7 +4,9 @@ function App() {
   return (
     <div className="App">
       <h1>QR Code Scanning in React</h1>
+      {/* <div id="reader"> */}
       <Scanner />
+      {/* </div> */}
     </div>
   );
 }
