@@ -1,12 +1,12 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
 import "../Scanner.css";
-
+import { CardHeader, Card, CardBody } from "react-bootstrap";
 function Scanner() {
   const [scanResult, setScanResult] = useState(null);
   const [itemData, setItemData] = useState(null);
   const [qrCodeInput, setQrCodeInput] = useState("");
-
+  const [value, setValue] = useState("None");
   useEffect(() => {
     const scanner = new Html5QrcodeScanner("reader", {
       qrbox: {
@@ -44,6 +44,7 @@ function Scanner() {
   };
 
   const handleScanQrCodeButtonClick = async () => {
+    setValue("inline");
     if (qrCodeInput) {
       setScanResult(qrCodeInput);
       try {
@@ -61,32 +62,43 @@ function Scanner() {
   };
 
   return (
-    <div className="scanner-container">
-      <input
-        type="text"
-        placeholder="Enter QR code here"
-        value={qrCodeInput}
-        onChange={handleQrCodeInputChange}
-      />
-      <button onClick={handleScanQrCodeButtonClick}>Scan QR Code</button>
-      {scanResult ? (
-        <div>
-          Success: <a href={scanResult}>{scanResult}</a>
-        </div>
-      ) : (
-        <div id="reader" className="scanner"></div>
-      )}
-      {itemData && (
-        <div>
-          Item Information:
+    <Card>
+      <CardHeader>
+        <h4>Product Scanner</h4>
+      </CardHeader>
+
+      <CardBody>
+        {/* <div> */}
+        {/* <input
+          type="text"
+          placeholder="Enter the product name"
+          value={qrCodeInput}
+          onChange={handleQrCodeInputChange}
+          bsClass="custom-input"
+        /> */}
+        {/* <button onClick={}>Enter</button> */}
+        {/* <button onClick={handleScanQrCodeButtonClick}>Scan QR Code</button> */}
+        {scanResult ? (
           <div>
-            <p>Item Name: {itemData.name}</p>
-            <p>Description: {itemData.description}</p>
-            {/* Add other relevant fields */}
+            Success: <a href={scanResult}>{scanResult}</a>
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div id="reader" className="scanner">
+            {/* <div id="reader__scan_region" style={{ minHeight: 0 }}></div> */}
+          </div>
+        )}
+        {itemData && (
+          <div>
+            Item Information:
+            <div>
+              <p>Item Name: {itemData.name}</p>
+              <p>Description: {itemData.description}</p>
+            </div>
+          </div>
+        )}
+        {/* </div> */}
+      </CardBody>
+    </Card>
   );
 }
 

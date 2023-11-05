@@ -1,0 +1,47 @@
+/* .article {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display:flex;
+} */
+
+.image {
+    /* object-fit: cover; */
+    width: 100%;
+}
+
+.header {
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    bottom: 14%;
+    left: 10%;
+    right: 0;
+    height: fit-content;
+    margin:auto;
+}
+
+.scannerContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px; /* Adjust this value based on your requirements */
+    /* Add other styles as needed */
+    bottom: 80%;
+    background-color: beige;
+  }
+
+  /* .image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  } */
+  
+  .image {
+    max-width: 13%;
+    margin-right: 20px;
+  }
+  
+  
